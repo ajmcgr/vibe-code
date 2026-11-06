@@ -200,7 +200,7 @@ function Index() {
       </nav>
 
       <main id="top">
-        <section className="px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
+        <section className="chapter-gradient chapter-opening px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
           <div className="mx-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODE BOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
@@ -221,7 +221,7 @@ function Index() {
           <ShareIcons url={`${SITE}/#${id}`} text={`${label}: ${title} — Vibe Code Book`} label="Share this chapter" />
         )} />
 
-        <section id="about" className="border-t border-border px-5 py-20 md:py-28">
+        <section id="about" className="chapter-gradient border-t border-border px-5 py-20 md:py-28">
           <div className="mx-auto flex max-w-[720px] flex-col gap-8 sm:flex-row sm:items-center">
             <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 border border-border object-cover" />
             <div className="min-w-0">

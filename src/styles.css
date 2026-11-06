@@ -178,3 +178,47 @@ section[id] { scroll-margin-top: 9rem; }
 }
 @media (max-width: 1023px) { section[id], .book-content h3 { scroll-margin-top: 12rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+:root {
+  --chapter-mint: oklch(.94 .075 160);
+  --chapter-sky: oklch(.93 .065 225);
+  --chapter-lemon: oklch(.96 .10 105);
+  --chapter-peach: oklch(.93 .07 50);
+  --chapter-rose: oklch(.93 .075 355);
+  --chapter-lilac: oklch(.93 .06 300);
+  --chapter-aqua: oklch(.94 .075 190);
+  --chapter-ink: oklch(.35 .025 260);
+}
+.dark {
+  --chapter-mint: oklch(.23 .045 160);
+  --chapter-sky: oklch(.23 .045 225);
+  --chapter-lemon: oklch(.26 .045 105);
+  --chapter-peach: oklch(.25 .045 50);
+  --chapter-rose: oklch(.24 .045 355);
+  --chapter-lilac: oklch(.23 .045 300);
+  --chapter-aqua: oklch(.24 .045 190);
+  --chapter-ink: oklch(.86 .015 260);
+}
+.chapter-gradient {
+  --chapter-start: var(--chapter-mint);
+  --chapter-end: var(--chapter-sky);
+  --muted-foreground: var(--chapter-ink);
+  background-image: linear-gradient(125deg, var(--chapter-start), color-mix(in oklch, var(--background) 80%, var(--chapter-start)) 48%, var(--chapter-end));
+  background-attachment: fixed;
+}
+.chapter-opening { --chapter-start: var(--chapter-sky); --chapter-end: var(--chapter-rose); }
+#how-to-use { --chapter-start: var(--chapter-aqua); --chapter-end: var(--chapter-lemon); }
+#idea { --chapter-start: var(--chapter-lemon); --chapter-end: var(--chapter-mint); }
+#build { --chapter-start: var(--chapter-sky); --chapter-end: var(--chapter-aqua); }
+#brand { --chapter-start: var(--chapter-rose); --chapter-end: var(--chapter-peach); }
+#launch { --chapter-start: var(--chapter-peach); --chapter-end: var(--chapter-lemon); }
+#pr { --chapter-start: var(--chapter-lilac); --chapter-end: var(--chapter-rose); }
+#content { --chapter-start: var(--chapter-aqua); --chapter-end: var(--chapter-sky); }
+#analytics { --chapter-start: var(--chapter-mint); --chapter-end: var(--chapter-lilac); }
+#summary { --chapter-start: var(--chapter-lemon); --chapter-end: var(--chapter-rose); }
+#thirty-days { --chapter-start: var(--chapter-peach); --chapter-end: var(--chapter-aqua); }
+#glossary { --chapter-start: var(--chapter-sky); --chapter-end: var(--chapter-lemon); }
+#about { --chapter-start: var(--chapter-rose); --chapter-end: var(--chapter-mint); }
+@media (max-width: 1023px) {
+  .chapter-gradient { background-attachment: scroll; background-size: 100% 100dvh; background-repeat: repeat-y; }
+}

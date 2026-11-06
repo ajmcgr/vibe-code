@@ -215,7 +215,7 @@ function Index() {
       <main id="top">
         <section className="chapter-gradient chapter-opening px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
           <div className="mx-auto max-w-[720px]">
-            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODE BOOK</div>
+            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODING PLAYBOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">

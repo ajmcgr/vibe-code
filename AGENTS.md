@@ -30,3 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 
 - Load site-wide analytics scripts through the root route head so they initialize once across pages.
+- Keep expanded book copy in Markdown and render its editorial markers through the dedicated book component, preserving all supplied sections and mapping image paths to asset pointers.

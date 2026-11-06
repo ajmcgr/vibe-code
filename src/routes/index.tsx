@@ -202,7 +202,7 @@ function Index() {
       </nav>
 
       <main id="top">
-        <section className="bg-background px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
+        <section className="chapter-gradient chapter-opening px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
           <div className="mx-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODE BOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>

@@ -240,7 +240,7 @@ function Index() {
             <div className="min-w-0">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">AUTHOR</div>
             <h2 className="mt-3 text-3xl font-bold tracking-tight">Alex MacGregor</h2>
-            <p className="mt-4 text-lg text-muted-foreground">Alex MacGregor builds software and helps founders launch and document the process.</p>
+            <p className="mt-4 text-lg text-muted-foreground">Building startups in public and documenting the process. Founder of Launch, Rocket, Post, Media &amp; other apps.</p>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
               {[
                 ["X", "https://x.com/alexmacgregor__"],

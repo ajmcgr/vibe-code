@@ -94,7 +94,7 @@ function ShareRow({ url, text, label = "Share", size = "sm" }: { url: string; te
           href={href}
           target="_blank"
           rel="noreferrer"
-          className={`inline-flex min-h-11 items-center gap-2 rounded-full border border-border transition-colors hover:bg-accent ${size === "md" ? "px-4 py-2 text-[15px]" : "px-3 py-1.5 text-sm"}`}
+          className={`inline-flex min-h-11 items-center gap-2 rounded-button border border-border transition-colors hover:bg-accent ${size === "md" ? "px-4 py-2 text-[15px]" : "px-3 py-1.5 text-sm"}`}
         >
           <Icon className={size === "md" ? "h-4 w-4" : "h-3.5 w-3.5"} />
           {name}
@@ -115,7 +115,7 @@ function ShareIcons({ url, text, label = "Share this phase" }: { url: string; te
           rel="noreferrer"
           aria-label={`${label} on ${name}`}
           title={`${label} on ${name}`}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:h-7 sm:w-7"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-button text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:h-7 sm:w-7"
         >
           <Icon className="h-4 w-4" />
         </a>
@@ -130,7 +130,7 @@ function DownloadButton({ size = "md", free = true }: { size?: "sm" | "md"; free
       <a
         href={PDF}
         download
-        className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-primary font-medium text-primary-foreground transition-opacity hover:opacity-85 ${size === "sm" ? "px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "px-6 py-3 text-base"}`}
+        className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-button bg-primary font-medium text-primary-foreground transition-opacity hover:opacity-85 ${size === "sm" ? "px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "px-6 py-3 text-base"}`}
       >
         Download PDF
       </a>
@@ -207,7 +207,7 @@ function Index() {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <DownloadButton free={false} />
-              <a href="#how-to-use" className="inline-flex items-center rounded-full border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">
+              <a href="#how-to-use" className="inline-flex items-center rounded-button border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">
                 Start reading
               </a>
             </div>

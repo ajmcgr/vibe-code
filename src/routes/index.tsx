@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
-import alex from "@/assets/alex-macgregor.jpg.asset.json";
+import alex from "@/assets/playbook-alex.jpg.asset.json";
 
 const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
 const SUB =
@@ -208,7 +208,7 @@ function Index() {
             <div>
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">AUTHOR</div>
             <h2 className="mt-3 text-3xl font-bold tracking-tight">Alex MacGregor</h2>
-            <p className="mt-4 text-lg text-muted-foreground">I build software, help founders launch & document the process.</p>
+            <p className="mt-4 text-lg text-muted-foreground">Alex MacGregor builds software and helps founders launch and document the process.</p>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
               {[
                 ["X", "https://x.com/alexmacgregor__"],

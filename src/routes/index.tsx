@@ -9,18 +9,30 @@ const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
 const SUB =
   "A structured 7-phase path for early-stage founders to go from idea to market, build momentum, and keep growing.";
 const PDF = bookPdf.url;
+const SITE = "https://vibecodebook.org";
+const OG_IMAGE = `${SITE}/og-cover.png`;
+const SHARE_DESC =
+  "A free 7-phase playbook for early-stage founders: idea, build, brand, launch, PR, content and analytics. By Alex MacGregor.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: `${TITLE} | Vibe Code Book` },
-      { name: "description", content: SUB },
+      { name: "description", content: SHARE_DESC },
       { property: "og:title", content: TITLE },
-      { property: "og:description", content: SUB },
+      { property: "og:description", content: SHARE_DESC },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: SITE },
+      { property: "og:site_name", content: "Vibe Code Book" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:alt", content: TITLE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: SUB },
+      { name: "twitter:description", content: SHARE_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:creator", content: "@alexmacgregor__" },
     ],
   }),
   component: Index,

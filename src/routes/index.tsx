@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { useEffect, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
+import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
 import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
 import { List, ChevronDown } from "lucide-react";
@@ -150,6 +152,73 @@ function DownloadButton({ size = "md", free = true }: { size?: "xs" | "sm" | "md
   );
 }
 
+function NewsletterForm() {
+  const subscribe = useServerFn(subscribeToNewsletter);
+  const [email, setEmail] = useState("");
+  const [sending, setSending] = useState(false);
+  const [done, setDone] = useState<"subscribed" | "already" | null>(null);
+  const [error, setError] = useState("");
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (sending) return;
+    setError("");
+    setSending(true);
+    try {
+      const result = await subscribe({ data: { email } });
+      setDone(result.status);
+      setEmail("");
+    } catch (err) {
+      setError(
+        err instanceof Error && err.message
+          ? err.message
+          : "Couldn't sign you up right now. Please try again.",
+      );
+    } finally {
+      setSending(false);
+    }
+  }
+
+  return (
+    <div className="mt-8 border-t border-border pt-6">
+      <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">NEWSLETTER</div>
+      {done ? (
+        <p aria-live="polite" className="mt-3 text-[15px] text-foreground">
+          {done === "already"
+            ? "You're already on the list — thanks for reading."
+            : "You're in. Check your inbox to confirm if you don't see the next issue."}
+        </p>
+      ) : (
+        <>
+          <form onSubmit={onSubmit} className="mt-3 flex max-w-md flex-wrap items-center gap-3">
+            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+            <input
+              id="newsletter-email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              className="min-h-11 w-full min-w-0 flex-1 rounded-button border border-border bg-background px-4 text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+            <button
+              type="submit"
+              disabled={sending}
+              className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-button bg-primary px-6 text-base font-medium text-primary-foreground transition-all duration-300 hover:opacity-85 disabled:opacity-60"
+            >
+              {sending ? "Signing up…" : "Subscribe"}
+            </button>
+          </form>
+          <p aria-live="polite" className="mt-2 min-h-4 text-xs text-destructive">{error}</p>
+          <p className="text-xs text-muted-foreground">Unsubscribe anytime.</p>
+        </>
+      )}
+    </div>
+  );
+}
+
 function useActive() {
   const [active, setActive] = useState<string>("");
   const [progress, setProgress] = useState(0);
@@ -252,6 +321,7 @@ function Index() {
                 <li key={l}><a href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:decoration-foreground">{l}</a></li>
               ))}
             </ul>
+            <NewsletterForm />
             </div>
           </div>
         </section>

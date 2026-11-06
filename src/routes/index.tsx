@@ -177,7 +177,7 @@ function Index() {
   const { active, progress, scrolled } = useActive();
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" style={{ transform: `scaleX(${progress})` }} />
+      <div className="gradient-accent fixed inset-x-0 top-0 z-50 h-[2px] origin-left" style={{ transform: `scaleX(${progress})` }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
@@ -213,7 +213,7 @@ function Index() {
       </nav>
 
       <main id="top">
-        <section className="chapter-gradient chapter-opening px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
+        <section className="bg-background px-5 pb-16 pt-12 sm:pb-24 sm:pt-24 md:pt-36">
           <div className="mx-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODING PLAYBOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "7a99f7c6-5aec-4b3c-a297-ea55f4b4a554",
+  "asset_id": "f9f10a4b-5d8c-4d31-bfd4-7b2957f62673",
   "project_id": "f106d650-22ec-4839-8ea0-4687f649e972",
-  "url": "/__l5e/assets-v1/7a99f7c6-5aec-4b3c-a297-ea55f4b4a554/stripe-example.jpg",
-  "r2_key": "a/v1/f106d650-22ec-4839-8ea0-4687f649e972/7a99f7c6-5aec-4b3c-a297-ea55f4b4a554/stripe-example.jpg",
+  "url": "/__l5e/assets-v1/f9f10a4b-5d8c-4d31-bfd4-7b2957f62673/stripe-example.jpg",
+  "r2_key": "a/v1/f106d650-22ec-4839-8ea0-4687f649e972/f9f10a4b-5d8c-4d31-bfd4-7b2957f62673/stripe-example.jpg",
   "original_filename": "stripe-example.jpg",
-  "size": 878,
+  "size": 122617,
   "content_type": "image/jpeg",
-  "created_at": "2026-11-06T08:53:33Z"
+  "created_at": "2026-11-06T08:53:44Z"
 }

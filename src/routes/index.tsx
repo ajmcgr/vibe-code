@@ -4,7 +4,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
-import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
+import bookPdf from "@/assets/vibe-code-book-expanded-2.pdf.asset.json";
 import { List, ChevronDown } from "lucide-react";
 
 const TITLE = "Vibe Coding Apps: From Idea to Launch and Beyond";

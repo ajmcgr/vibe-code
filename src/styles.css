@@ -29,6 +29,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --radius-button: var(--radius-button);
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -68,6 +69,7 @@
   /* Single corner radius for every button, matched to the reference design. */
   --radius-button: 0.5rem;
   --background: oklch(1 0 0);
+  --surface: oklch(0.985 0 0);
   --foreground: oklch(0.178 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.178 0 0);

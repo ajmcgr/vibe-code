@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
 import alex from "@/assets/playbook-alex.jpg.asset.json";
 import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
+import { List, ChevronDown } from "lucide-react";
 
 const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
 const SUB =
@@ -85,15 +86,15 @@ function shareLinks(url: string, text: string) {
 
 function ShareRow({ url, text, label = "Share", size = "sm" }: { url: string; text: string; label?: string; size?: "sm" | "md" }) {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <span className="text-xs font-medium tracking-[0.18em] text-muted-foreground">{label.toUpperCase()}</span>
+    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+      <span className="w-full text-xs font-medium tracking-[0.18em] text-muted-foreground sm:w-auto">{label.toUpperCase()}</span>
       {shareLinks(url, text).map(([name, href, Icon]) => (
         <a
           key={name}
           href={href}
           target="_blank"
           rel="noreferrer"
-          className={`inline-flex items-center gap-2 rounded-full border border-border transition-colors hover:bg-accent ${size === "md" ? "px-4 py-2 text-[15px]" : "px-3 py-1.5 text-sm"}`}
+          className={`inline-flex min-h-11 items-center gap-2 rounded-full border border-border transition-colors hover:bg-accent ${size === "md" ? "px-4 py-2 text-[15px]" : "px-3 py-1.5 text-sm"}`}
         >
           <Icon className={size === "md" ? "h-4 w-4" : "h-3.5 w-3.5"} />
           {name}
@@ -105,7 +106,7 @@ function ShareRow({ url, text, label = "Share", size = "sm" }: { url: string; te
 
 function ShareIcons({ url, text, label = "Share this phase" }: { url: string; text: string; label?: string }) {
   return (
-    <span className="flex items-center gap-1">
+    <span className="flex shrink-0 items-center gap-1">
       {shareLinks(url, text).map(([name, href, Icon]) => (
         <a
           key={name}
@@ -114,7 +115,7 @@ function ShareIcons({ url, text, label = "Share this phase" }: { url: string; te
           rel="noreferrer"
           aria-label={`${label} on ${name}`}
           title={`${label} on ${name}`}
-          className="inline-flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:h-7 sm:w-7"
         >
           <Icon className="h-4 w-4" />
         </a>
@@ -125,11 +126,11 @@ function ShareIcons({ url, text, label = "Share this phase" }: { url: string; te
 
 function DownloadButton({ size = "md", free = true }: { size?: "sm" | "md"; free?: boolean }) {
   return (
-    <span className="inline-flex items-center gap-3">
+    <span className="inline-flex shrink-0 items-center gap-2 sm:gap-3">
       <a
         href={PDF}
         download
-        className={`inline-flex items-center rounded-full bg-primary font-medium text-primary-foreground transition-opacity hover:opacity-85 ${size === "sm" ? "px-4 py-1.5 text-sm" : "px-6 py-3 text-base"}`}
+        className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-primary font-medium text-primary-foreground transition-opacity hover:opacity-85 ${size === "sm" ? "px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "px-6 py-3 text-base"}`}
       >
         Download PDF
       </a>
@@ -165,10 +166,24 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" style={{ transform: `scaleX(${progress})` }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-[1100px] items-center justify-between gap-4 px-5 py-3">
-          <a href="#top" className="text-5xl font-bold leading-none tracking-tight md:text-8xl">Vibe Code</a>
+        <div className="mx-auto grid max-w-[1100px] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 sm:flex sm:justify-between sm:gap-4 sm:px-5">
+          <a href="#top" className="min-w-0 text-4xl font-bold leading-none sm:text-5xl md:text-8xl">Vibe Code</a>
           <DownloadButton size="sm" />
         </div>
+        <details className="mobile-chapters relative border-t border-border lg:hidden">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 text-sm font-medium">
+            <List className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span className="min-w-0 flex-1">{CHAPTERS.find(([id]) => id === active)?.[1] ?? "Contents"}</span>
+            <ChevronDown className="h-4 w-4 shrink-0" aria-hidden="true" />
+          </summary>
+          <nav aria-label="Mobile book chapters" className="absolute inset-x-0 top-full max-h-[60dvh] overflow-y-auto border-b border-border bg-background px-4 py-2">
+            {CHAPTERS.map(([id, label, number]) => (
+              <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className={`flex min-h-11 items-center gap-3 border-b border-border px-2 text-sm last:border-0 ${active === id ? "bg-accent font-semibold text-foreground" : "text-muted-foreground"}`}>
+                <span className="w-5 shrink-0 text-center tabular-nums" aria-hidden="true">{number}</span>{label}
+              </a>
+            ))}
+          </nav>
+        </details>
       </header>
 
       <nav aria-label="Book chapters" className="fixed left-3 top-[calc(50%+3rem)] z-30 hidden max-h-[calc(100dvh-11rem)] w-32 -translate-y-1/2 overflow-y-auto rounded-lg border border-border bg-background/95 p-1.5 backdrop-blur lg:block">
@@ -185,7 +200,7 @@ function Index() {
       </nav>
 
       <main id="top">
-        <section className="px-5 pb-20 pt-20 md:pt-32">
+        <section className="px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
           <div className="mx-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODE BOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
@@ -209,7 +224,7 @@ function Index() {
         <section id="about" className="border-t border-border px-5 py-20 md:py-28">
           <div className="mx-auto flex max-w-[720px] flex-col gap-8 sm:flex-row sm:items-center">
             <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 border border-border object-cover" />
-            <div>
+            <div className="min-w-0">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">AUTHOR</div>
             <h2 className="mt-3 text-3xl font-bold tracking-tight">Alex MacGregor</h2>
             <p className="mt-4 text-lg text-muted-foreground">Alex MacGregor builds software and helps founders launch and document the process.</p>
@@ -221,7 +236,7 @@ function Index() {
                 ["TikTok", "https://tiktok.com/@alexmacgregor__"],
                 ["LinkedIn", "https://linkedin.com/in/alexmacgregor2"],
               ].map(([l, h]) => (
-                <li key={l}><a href={h} target="_blank" rel="noreferrer" className="underline decoration-border underline-offset-4 hover:decoration-foreground">{l}</a></li>
+                <li key={l}><a href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:decoration-foreground">{l}</a></li>
               ))}
             </ul>
             <div className="mt-8">
@@ -235,8 +250,8 @@ function Index() {
       <footer className="border-t border-border px-5 py-10">
         <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <span>Alex MacGregor · Vibe Code Book</span>
-          <span className="inline-flex items-center gap-3">
-            <a href={PDF} download className="font-medium text-foreground underline underline-offset-4">Download PDF</a>
+          <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
+            <a href={PDF} download className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
             <span className="text-xs">(free)</span>
             <span className="mx-2 h-4 w-px bg-border" />
             <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />

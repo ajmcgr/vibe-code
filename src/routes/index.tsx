@@ -155,7 +155,7 @@ function Index() {
         </div>
       </header>
 
-      <nav aria-label="Phases" className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 xl:block">
+      <nav aria-label="Phases" className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 2xl:block">
         <ul className="space-y-2 text-sm">
           {PHASES.map(([id, label], i) => (
             <li key={id}>

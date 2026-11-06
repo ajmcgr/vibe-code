@@ -7,7 +7,7 @@ import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
 import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
 import { List, ChevronDown } from "lucide-react";
 
-const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
+const TITLE = "Vibe Coding Apps: From Idea to Launch and Beyond";
 const SUB =
   "A structured 7-phase path for early-stage founders to go from idea to market, build momentum, and keep growing.";
 const PDF = bookPdf.url;
@@ -56,7 +56,7 @@ const CHAPTERS = [
 ] as const;
 
 const SHARE_TEXT =
-  "Vibe Coding: From Idea to Launch and Beyond — a free 7-phase playbook for founders by Alex MacGregor";
+  "Vibe Coding Apps: From Idea to Launch and Beyond — a free 7-phase playbook for founders by Alex MacGregor";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -283,7 +283,7 @@ function Index() {
       <main id="top">
         <section className="bg-background px-5 pb-16 pt-12 sm:pb-24 sm:pt-24 md:pt-36">
           <div className="mx-auto max-w-[720px]">
-            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODING PLAYBOOK</div>
+            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODING APPS PLAYBOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">

@@ -252,9 +252,6 @@ function Index() {
                 <li key={l}><a href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:decoration-foreground">{l}</a></li>
               ))}
             </ul>
-            <div className="mt-8">
-              <ShareRow url={SITE} text={SHARE_TEXT} label="Share" />
-            </div>
             </div>
           </div>
         </section>
@@ -266,8 +263,6 @@ function Index() {
           <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
             <a href={PDF} download className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
             <span className="text-xs">(free)</span>
-            <span className="mx-2 h-4 w-px bg-border" />
-            <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
           </span>
         </div>
       </footer>

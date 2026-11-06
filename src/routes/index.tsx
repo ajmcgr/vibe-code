@@ -262,7 +262,7 @@ function Index() {
 
       <footer className="border-t border-border px-5 py-10">
         <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-          <span>Alex MacGregor · Vibe Code Book</span>
+          <span>© Alex MacGregor</span>
           <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
             <a href={PDF} download className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
             <span className="text-xs">(free)</span>

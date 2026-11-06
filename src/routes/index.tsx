@@ -310,6 +310,7 @@ function Index() {
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">AUTHOR</div>
             <h2 className="mt-3 text-3xl font-bold tracking-tight">Alex MacGregor</h2>
             <p className="mt-4 text-lg text-muted-foreground">Building startups in public and documenting the process. Founder of Launch, Rocket, Post, Media &amp; other apps.</p>
+            <NewsletterForm />
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
               {[
                 ["X", "https://x.com/alexmacgregor__"],
@@ -321,7 +322,6 @@ function Index() {
                 <li key={l}><a href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:decoration-foreground">{l}</a></li>
               ))}
             </ul>
-            <NewsletterForm />
             </div>
           </div>
         </section>

@@ -150,8 +150,8 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" style={{ transform: `scaleX(${progress})` }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-5">
-          <a href="#top" className="text-xl font-bold tracking-tight">Vibe Code</a>
+        <div className="mx-auto flex max-w-[1100px] items-center justify-between gap-4 px-5 py-3">
+          <a href="#top" className="text-5xl font-bold leading-none tracking-tight md:text-8xl">Vibe Code</a>
           <DownloadButton size="sm" />
         </div>
       </header>

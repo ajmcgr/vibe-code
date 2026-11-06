@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       { property: "og:site_name", content: "Vibe Code Book" },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "640" },
+      { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: TITLE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },

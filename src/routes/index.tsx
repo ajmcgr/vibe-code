@@ -6,6 +6,7 @@ import chatbase from "@/assets/chatbase-example.jpg.asset.json";
 import producthunt from "@/assets/producthunt-example.jpg.asset.json";
 import stripe from "@/assets/stripe-example.jpg.asset.json";
 import cluely from "@/assets/cluely-example.jpg.asset.json";
+import alex from "@/assets/alex-macgregor.jpg.asset.json";
 import ahrefs from "@/assets/ahrefs-example.jpg.asset.json";
 
 const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
@@ -41,7 +42,7 @@ const PHASES = [
 
 type Item = [string, string];
 
-function DownloadButton({ size = "md" }: { size?: "sm" | "md" }) {
+function DownloadButton({ size = "md", free = true }: { size?: "sm" | "md"; free?: boolean }) {
   return (
     <span className="inline-flex items-center gap-3">
       <a
@@ -51,7 +52,7 @@ function DownloadButton({ size = "md" }: { size?: "sm" | "md" }) {
       >
         Download PDF
       </a>
-      <span className="text-xs text-muted-foreground">Free PDF</span>
+      {free && <span className="text-xs text-muted-foreground">free</span>}
     </span>
   );
 }
@@ -150,22 +151,22 @@ function Index() {
       <div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" style={{ transform: `scaleX(${progress})` }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-5">
-          <a href="#top" className="text-sm font-semibold tracking-tight">Founder Playbook</a>
+          <a href="#top" className="text-xl font-bold tracking-tight">Vibe Code</a>
           <DownloadButton size="sm" />
         </div>
       </header>
 
-      <nav aria-label="Phases" className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 2xl:block">
-        <ul className="space-y-2 text-sm">
+      <nav aria-label="Phases" className="fixed right-4 top-1/2 z-30 hidden -translate-y-1/2 xl:block">
+        <ol className="rounded-2xl border border-border bg-background/95 p-2 backdrop-blur">
           {PHASES.map(([id, label], i) => (
             <li key={id}>
-              <a href={`#${id}`} className={`flex items-center gap-2 transition-colors ${active === id ? "font-medium text-foreground" : "text-muted-foreground hover:text-foreground"}`}>
-                <span className={`h-px transition-all ${active === id ? "w-6 bg-primary" : "w-3 bg-border"}`} />
-                {i + 1}. {label}
+              <a href={`#${id}`} title={label} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition-colors ${active === id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}>
+                <span className="tabular-nums">0{i + 1}</span>
+                <span className="hidden 2xl:inline">{label}</span>
               </a>
             </li>
           ))}
-        </ul>
+        </ol>
       </nav>
 
       <main id="top">
@@ -175,22 +176,12 @@ function Index() {
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <DownloadButton />
+              <DownloadButton free={false} />
               <a href="#idea" className="inline-flex items-center rounded-full border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">
                 Start reading
               </a>
             </div>
           </div>
-          <ol className="mx-auto mt-20 grid max-w-[1100px] grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4 lg:grid-cols-7">
-            {PHASES.map(([id, label], i) => (
-              <li key={id} className="bg-background">
-                <a href={`#${id}`} className="block p-4 transition-colors hover:bg-accent">
-                  <div className="text-xs text-muted-foreground">0{i + 1}</div>
-                  <div className="mt-1 font-medium">{label}</div>
-                </a>
-              </li>
-            ))}
-          </ol>
         </section>
 
         <Phase n={1} id="idea" title="Idea: Find Something Worth Building" intro="Before writing a single line of code, validate that the problem is real and the market exists. Use AI research tools and community signals to narrow in on a wedge worth pursuing.">
@@ -358,7 +349,9 @@ function Index() {
         </section>
 
         <section id="about" className="border-t border-border px-5 py-20 md:py-28">
-          <div className="mx-auto max-w-[720px]">
+          <div className="mx-auto flex max-w-[720px] flex-col gap-8 sm:flex-row sm:items-center">
+            <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 rounded-full border border-border object-cover" />
+            <div>
             <h2 className="text-3xl font-bold tracking-tight">Alex MacGregor</h2>
             <p className="mt-4 text-lg text-muted-foreground">I build software, help founders launch & document the process.</p>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
@@ -372,6 +365,7 @@ function Index() {
                 <li key={l}><a href={h} target="_blank" rel="noreferrer" className="underline decoration-border underline-offset-4 hover:decoration-foreground">{l}</a></li>
               ))}
             </ul>
+            </div>
           </div>
         </section>
       </main>
@@ -381,7 +375,7 @@ function Index() {
           <span>Alex MacGregor · Founder Playbook</span>
           <span className="inline-flex items-center gap-3">
             <a href={PDF} download className="font-medium text-foreground underline underline-offset-4">Download PDF</a>
-            <span className="text-xs">Free PDF</span>
+            <span className="text-xs">free</span>
           </span>
         </div>
       </footer>

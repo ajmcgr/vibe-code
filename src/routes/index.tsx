@@ -2,11 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
 import alex from "@/assets/playbook-alex.jpg.asset.json";
+import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
 
 const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
 const SUB =
   "A structured 7-phase path for early-stage founders to go from idea to market, build momentum, and keep growing.";
-const PDF = "/vibe-coding-founder-playbook.pdf";
+const PDF = bookPdf.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({

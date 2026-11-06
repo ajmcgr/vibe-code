@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { createFileRoute, useServerFn } from "@tanstack/react-router";
+import { useEffect, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
+import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
 import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
 import { List, ChevronDown } from "lucide-react";

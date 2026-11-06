@@ -24,7 +24,9 @@ const images: Record<string, string> = {
 
 const chapters = content.split(/^---\s*$/m).flatMap((chapter) => {
   const heading = chapter.match(/^# (.+) \{#([^}]+)\}$/m);
-  if (!heading || heading[2] === "about") return [];
+  const title = heading?.[1];
+  const id = heading?.[2];
+  if (!title || !id || id === "about") return [];
   const label = chapter.match(/^PHASE LABEL: (.+)$/m)?.[1] ?? "";
   const intro = chapter.match(/^LEAD: (.+)$/m)?.[1] ?? "";
   const body = chapter
@@ -33,7 +35,7 @@ const chapters = content.split(/^---\s*$/m).flatMap((chapter) => {
     .replace(/^LEAD: .+\n/m, "")
     .replace(/^CHECKLIST:\s*\n/gm, "")
     .replace(/^CALLOUT: (.+)$/gm, "> $1");
-  return [{ id: heading[2], title: heading[1], label, intro, body }];
+  return [{ id, title, label, intro, body }];
 });
 
 function MarkdownHeading({ children }: { children?: ReactNode }) {

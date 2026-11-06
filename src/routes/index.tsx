@@ -181,7 +181,6 @@ function NewsletterForm() {
 
   return (
     <div className="mt-8 border-t border-border pt-6">
-      <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">NEWSLETTER</div>
       {done ? (
         <p aria-live="polite" className="mt-3 text-[15px] text-foreground">
           {done === "already"

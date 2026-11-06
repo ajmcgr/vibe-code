@@ -80,6 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Alex MacGregor" },
     ],
+    scripts: [
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+      },
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtm.js?id=GTM-WJW6MSH9",
+      },
+    ],
     links: [
       {
         rel: "stylesheet",

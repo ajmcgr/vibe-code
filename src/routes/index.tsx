@@ -19,13 +19,13 @@ const SHARE_DESC =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${TITLE} | Vibe Code Book` },
+      { title: TITLE },
       { name: "description", content: SHARE_DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: SHARE_DESC },
       { property: "og:type", content: "article" },
       { property: "og:url", content: SITE },
-      { property: "og:site_name", content: "Vibe Code Book" },
+      { property: "og:site_name", content: "Vibe Coding Apps Playbook" },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
@@ -299,7 +299,7 @@ function Index() {
         </section>
 
         <ExpandedPlaybook share={(id, title, label) => (
-          <ShareIcons url={`${SITE}/#${id}`} text={`${label}: ${title} — Vibe Code Book`} label="Share this chapter" />
+          <ShareIcons url={`${SITE}/#${id}`} text={`${label}: ${title} — Vibe Coding Apps Playbook`} label="Share this chapter" />
         )} />
 
         <section id="about" className="border-t border-border bg-background px-5 py-20 md:py-28">

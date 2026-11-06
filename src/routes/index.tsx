@@ -17,7 +17,7 @@ const PDF = "/vibe-coding-founder-playbook.pdf";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${TITLE} | Founder Playbook` },
+      { title: `${TITLE} | Vibe Code Book` },
       { name: "description", content: SUB },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: SUB },
@@ -52,7 +52,7 @@ function DownloadButton({ size = "md", free = true }: { size?: "sm" | "md"; free
       >
         Download PDF
       </a>
-      {free && <span className="text-xs text-muted-foreground">free</span>}
+      {free && <span className="text-xs text-muted-foreground">(free)</span>}
     </span>
   );
 }
@@ -172,7 +172,7 @@ function Index() {
       <main id="top">
         <section className="px-5 pb-20 pt-20 md:pt-32">
           <div className="mx-auto max-w-[720px]">
-            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">FOUNDER PLAYBOOK</div>
+            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODE BOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -350,7 +350,7 @@ function Index() {
 
         <section id="about" className="border-t border-border px-5 py-20 md:py-28">
           <div className="mx-auto flex max-w-[720px] flex-col gap-8 sm:flex-row sm:items-center">
-            <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 rounded-full border border-border object-cover" />
+            <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 border border-border object-cover" />
             <div>
             <h2 className="text-3xl font-bold tracking-tight">Alex MacGregor</h2>
             <p className="mt-4 text-lg text-muted-foreground">I build software, help founders launch & document the process.</p>
@@ -372,10 +372,10 @@ function Index() {
 
       <footer className="border-t border-border px-5 py-10">
         <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-          <span>Alex MacGregor · Founder Playbook</span>
+          <span>Alex MacGregor · Vibe Code Book</span>
           <span className="inline-flex items-center gap-3">
             <a href={PDF} download className="font-medium text-foreground underline underline-offset-4">Download PDF</a>
-            <span className="text-xs">free</span>
+            <span className="text-xs">(free)</span>
           </span>
         </div>
       </footer>

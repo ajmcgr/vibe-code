@@ -166,7 +166,15 @@ body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
 .book-content th, .book-content td { border-bottom: 1px solid var(--border); padding: .85rem .75rem; text-align: left; vertical-align: top; }
 .book-content th { color: var(--foreground); font-weight: 600; background: var(--muted); }
 .book-content .contains-task-list { padding-left: 0; list-style: none; }
-.book-content .task-list-item { display: flex; align-items: baseline; gap: .75rem; }
-.book-content input[type="checkbox"] { flex-shrink: 0; accent-color: var(--primary); }
+.book-content .task-list-item { padding-left: 1.75rem; position: relative; }
+.book-content input[type="checkbox"] { position: absolute; left: 0; top: .55rem; accent-color: var(--primary); }
 section[id] { scroll-margin-top: 9rem; }
+.mobile-chapters summary::-webkit-details-marker { display: none; }
+.mobile-chapters[open] summary > svg:last-child { transform: rotate(180deg); }
+@media (max-width: 639px) {
+  .book-content { font-size: 16px; overflow-wrap: anywhere; }
+  .book-content pre { padding: 1rem; }
+  .book-table { overscroll-behavior-x: contain; }
+  section[id], .book-content h3 { scroll-margin-top: 12rem; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

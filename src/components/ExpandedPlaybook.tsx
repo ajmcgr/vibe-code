@@ -56,8 +56,8 @@ export function ExpandedPlaybook({ share }: { share: (id: string, title: string,
   return chapters.map((chapter) => (
     <section key={chapter.id} id={chapter.id} className="border-t border-border px-5 py-20 md:py-28">
       <div className="mx-auto max-w-[720px]">
-        <div className="flex items-center justify-between gap-4">
-          <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">{chapter.label}</div>
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:flex sm:justify-between sm:gap-4">
+          <div className="min-w-0 text-xs font-medium tracking-[0.18em] text-muted-foreground">{chapter.label}</div>
           {share(chapter.id, chapter.title, chapter.label)}
         </div>
         <h2 className="mt-3 text-3xl font-bold md:text-4xl">{chapter.title}</h2>

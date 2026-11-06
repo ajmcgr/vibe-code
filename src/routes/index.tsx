@@ -130,7 +130,7 @@ function DownloadButton({ size = "md", free = true }: { size?: "xs" | "sm" | "md
       <a
         href={PDF}
         download
-        className={`inline-flex items-center whitespace-nowrap rounded-button bg-primary font-medium text-primary-foreground transition-all duration-300 hover:opacity-85 ${size === "xs" ? "min-h-9 px-3 py-1 text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
+        className={`inline-flex items-center whitespace-nowrap rounded-button bg-primary font-medium text-primary-foreground transition-all duration-300 hover:opacity-85 ${size === "xs" ? "min-h-8 px-2.5 py-1 text-[11px] sm:min-h-9 sm:px-3 sm:text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
       >
         Download PDF
       </a>
@@ -169,7 +169,7 @@ function Index() {
       <div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" style={{ transform: `scaleX(${progress})` }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
-          <a href="#top" className={`min-w-0 font-bold leading-none transition-all duration-300 ${scrolled ? "text-2xl sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
+          <a href="#top" className={`min-w-0 font-bold leading-none transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
           <DownloadButton size={scrolled ? "xs" : "sm"} />
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">

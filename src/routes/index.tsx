@@ -1,4 +1,5 @@
-import { createFileRoute, useServerFn } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";

@@ -352,7 +352,8 @@ function Index() {
           <div className="mx-auto flex max-w-[720px] flex-col gap-8 sm:flex-row sm:items-center">
             <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 border border-border object-cover" />
             <div>
-            <h2 className="text-3xl font-bold tracking-tight">Alex MacGregor</h2>
+            <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">AUTHOR</div>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight">Alex MacGregor</h2>
             <p className="mt-4 text-lg text-muted-foreground">I build software, help founders launch & document the process.</p>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
               {[

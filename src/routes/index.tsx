@@ -9,18 +9,30 @@ const TITLE = "Vibe Coding: From Idea to Launch and Beyond";
 const SUB =
   "A structured 7-phase path for early-stage founders to go from idea to market, build momentum, and keep growing.";
 const PDF = bookPdf.url;
+const SITE = "https://vibecodebook.org";
+const OG_IMAGE = `${SITE}/og-cover.png`;
+const SHARE_DESC =
+  "A free 7-phase playbook for early-stage founders: idea, build, brand, launch, PR, content and analytics. By Alex MacGregor.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: `${TITLE} | Vibe Code Book` },
-      { name: "description", content: SUB },
+      { name: "description", content: SHARE_DESC },
       { property: "og:title", content: TITLE },
-      { property: "og:description", content: SUB },
+      { property: "og:description", content: SHARE_DESC },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: SITE },
+      { property: "og:site_name", content: "Vibe Code Book" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:alt", content: TITLE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: SUB },
+      { name: "twitter:description", content: SHARE_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:creator", content: "@alexmacgregor__" },
     ],
   }),
   component: Index,
@@ -41,7 +53,6 @@ const CHAPTERS = [
   ["about", "Author", "↳"],
 ] as const;
 
-const SITE = "https://vibecodebook.org";
 const SHARE_TEXT =
   "Vibe Coding: From Idea to Launch and Beyond — a free 7-phase playbook for founders by Alex MacGregor";
 
@@ -202,7 +213,7 @@ function Index() {
       </nav>
 
       <main id="top">
-        <section className="bg-background px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
+        <section className="chapter-gradient chapter-opening px-5 pb-14 pt-10 sm:pb-20 sm:pt-20 md:pt-32">
           <div className="mx-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">VIBE CODE BOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>

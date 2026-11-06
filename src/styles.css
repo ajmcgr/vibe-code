@@ -175,6 +175,6 @@ section[id] { scroll-margin-top: 9rem; }
   .book-content { font-size: 16px; overflow-wrap: anywhere; }
   .book-content pre { padding: 1rem; }
   .book-table { overscroll-behavior-x: contain; }
-  section[id], .book-content h3 { scroll-margin-top: 12rem; }
 }
+@media (max-width: 1023px) { section[id], .book-content h3 { scroll-margin-top: 12rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

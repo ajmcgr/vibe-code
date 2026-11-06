@@ -54,7 +54,7 @@ function MarkdownHeading({ children }: { children?: ReactNode }) {
 
 export function ExpandedPlaybook({ share }: { share: (id: string, title: string, label: string) => ReactNode }) {
   return chapters.map((chapter) => (
-    <section key={chapter.id} id={chapter.id} className="border-t border-border px-5 py-20 md:py-28">
+    <section key={chapter.id} id={chapter.id} className="chapter-gradient border-t border-border px-5 py-20 md:py-28">
       <div className="mx-auto max-w-[720px]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:flex sm:justify-between sm:gap-4">
           <div className="min-w-0 text-xs font-medium tracking-[0.18em] text-muted-foreground">{chapter.label}</div>

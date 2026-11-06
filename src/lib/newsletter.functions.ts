@@ -19,7 +19,7 @@ const subscribeSchema = z.object({
 export type NewsletterResult = { status: "subscribed" | "already" };
 
 export const subscribeToNewsletter = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => subscribeSchema.parse(input))
+  .validator((input: unknown) => subscribeSchema.parse(input))
   .handler(async ({ data }): Promise<NewsletterResult> => {
     const lovableKey = process.env["LOVABLE_API_KEY"];
     const beehiivKey = process.env["BEEHIIV_API_KEY"];

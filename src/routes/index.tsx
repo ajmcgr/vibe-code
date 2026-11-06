@@ -180,7 +180,7 @@ function NewsletterForm() {
   }
 
   return (
-    <div className="mt-8 border-t border-border pt-6">
+    <div className="mt-8">
       {done ? (
         <p aria-live="polite" className="mt-3 text-[15px] text-foreground">
           {done === "already"

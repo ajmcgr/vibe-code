@@ -124,13 +124,13 @@ function ShareIcons({ url, text, label = "Share this phase" }: { url: string; te
   );
 }
 
-function DownloadButton({ size = "md", free = true }: { size?: "sm" | "md"; free?: boolean }) {
+function DownloadButton({ size = "md", free = true }: { size?: "xs" | "sm" | "md"; free?: boolean }) {
   return (
     <span className="inline-flex shrink-0 items-center gap-2 sm:gap-3">
       <a
         href={PDF}
         download
-        className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-button bg-primary font-medium text-primary-foreground transition-opacity hover:opacity-85 ${size === "sm" ? "px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "px-6 py-3 text-base"}`}
+        className={`inline-flex items-center whitespace-nowrap rounded-button bg-primary font-medium text-primary-foreground transition-all duration-300 hover:opacity-85 ${size === "xs" ? "min-h-9 px-3 py-1 text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
       >
         Download PDF
       </a>
@@ -142,10 +142,12 @@ function DownloadButton({ size = "md", free = true }: { size?: "sm" | "md"; free
 function useActive() {
   const [active, setActive] = useState<string>("");
   const [progress, setProgress] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => {
       const h = document.documentElement;
       setProgress(h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight));
+      setScrolled(h.scrollTop > 40);
       let cur = "";
       for (const [id] of CHAPTERS) {
         const el = document.getElementById(id);
@@ -157,18 +159,18 @@ function useActive() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  return { active, progress };
+  return { active, progress, scrolled };
 }
 
 function Index() {
-  const { active, progress } = useActive();
+  const { active, progress, scrolled } = useActive();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="fixed inset-x-0 top-0 z-50 h-[2px] origin-left bg-primary" style={{ transform: `scaleX(${progress})` }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto grid max-w-[1100px] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 sm:flex sm:justify-between sm:gap-4 sm:px-5">
-          <a href="#top" className="min-w-0 text-4xl font-bold leading-none sm:text-5xl md:text-8xl">Vibe Code</a>
-          <DownloadButton size="sm" />
+        <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
+          <a href="#top" className={`min-w-0 font-bold leading-none transition-all duration-300 ${scrolled ? "text-2xl sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
+          <DownloadButton size={scrolled ? "xs" : "sm"} />
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">
           <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 text-sm font-medium">

@@ -53,7 +53,6 @@ const CHAPTERS = [
   ["about", "Author", "↳"],
 ] as const;
 
-const SITE = "https://vibecodebook.org";
 const SHARE_TEXT =
   "Vibe Coding: From Idea to Launch and Beyond — a free 7-phase playbook for founders by Alex MacGregor";
 

@@ -221,7 +221,7 @@ function Index() {
           <ShareIcons url={`${SITE}/#${id}`} text={`${label}: ${title} — Vibe Code Book`} label="Share this chapter" />
         )} />
 
-        <section id="about" className="chapter-gradient border-t border-border px-5 py-20 md:py-28">
+        <section id="about" className="border-t border-border bg-background px-5 py-20 md:py-28">
           <div className="mx-auto flex max-w-[720px] flex-col gap-8 sm:flex-row sm:items-center">
             <img src={alex.url} alt="Portrait of Alex MacGregor" loading="lazy" className="h-32 w-32 shrink-0 border border-border object-cover" />
             <div className="min-w-0">

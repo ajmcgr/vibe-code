@@ -25,14 +25,19 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHASES = [
-  ["idea", "Idea"],
-  ["build", "Build"],
-  ["brand", "Brand"],
-  ["launch", "Launch"],
-  ["pr", "PR"],
-  ["content", "Content"],
-  ["analytics", "Analytics"],
+const CHAPTERS = [
+  ["how-to-use", "Start here", "→"],
+  ["idea", "Idea", "01"],
+  ["build", "Build", "02"],
+  ["brand", "Brand", "03"],
+  ["launch", "Launch", "04"],
+  ["pr", "PR", "05"],
+  ["content", "Content", "06"],
+  ["analytics", "Analytics", "07"],
+  ["summary", "Summary", "↳"],
+  ["thirty-days", "30-day plan", "↳"],
+  ["glossary", "Glossary", "↳"],
+  ["about", "Author", "↳"],
 ] as const;
 
 const SITE = "https://vibecodebook.org";
@@ -141,12 +146,10 @@ function useActive() {
       const h = document.documentElement;
       setProgress(h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight));
       let cur = "";
-      for (const [id] of PHASES) {
+      for (const [id] of CHAPTERS) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
       }
-      const s = document.getElementById("summary");
-      if (s && s.getBoundingClientRect().top < window.innerHeight * 0.4) cur = "";
       setActive(cur);
     };
     onScroll();
@@ -168,13 +171,13 @@ function Index() {
         </div>
       </header>
 
-      <nav aria-label="Phases" className="fixed right-4 top-1/2 z-30 hidden -translate-y-1/2 xl:block">
-        <ol className="rounded-2xl border border-border bg-background/95 p-2 backdrop-blur">
-          {PHASES.map(([id, label], i) => (
+      <nav aria-label="Book chapters" className="fixed left-3 top-[calc(50%+3rem)] z-30 hidden max-h-[calc(100dvh-11rem)] w-32 -translate-y-1/2 overflow-y-auto rounded-lg border border-border bg-background/95 p-1.5 backdrop-blur lg:block">
+        <ol>
+          {CHAPTERS.map(([id, label, number]) => (
             <li key={id}>
-              <a href={`#${id}`} title={label} className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition-colors ${active === id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}>
-                <span className="tabular-nums">0{i + 1}</span>
-                <span className="hidden 2xl:inline">{label}</span>
+              <a href={`#${id}`} title={label} aria-current={active === id ? "location" : undefined} className={`flex items-center gap-2 rounded-md px-2 py-2 text-xs transition-colors ${active === id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}>
+                <span className="w-4 shrink-0 text-center tabular-nums" aria-hidden="true">{number}</span>
+                <span>{label}</span>
               </a>
             </li>
           ))}

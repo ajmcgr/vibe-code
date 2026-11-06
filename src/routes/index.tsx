@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
-import alex from "@/assets/playbook-alex.jpg.asset.json";
+import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
 import bookPdf from "@/assets/vibe-code-book-expanded.pdf.asset.json";
 import { List, ChevronDown } from "lucide-react";
 

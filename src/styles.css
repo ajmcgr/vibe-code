@@ -29,6 +29,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --radius-button: var(--radius-button);
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -68,6 +69,7 @@
   /* Single corner radius for every button, matched to the reference design. */
   --radius-button: 0.5rem;
   --background: oklch(1 0 0);
+  --surface: oklch(0.985 0 0);
   --foreground: oklch(0.178 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.178 0 0);
@@ -202,26 +204,7 @@ section[id] { scroll-margin-top: 9rem; }
   --chapter-aqua: oklch(.24 .045 190);
   --chapter-ink: oklch(.86 .015 260);
 }
-.chapter-gradient {
-  --chapter-start: var(--chapter-mint);
-  --chapter-end: var(--chapter-sky);
-  --muted-foreground: var(--chapter-ink);
-  background-image: linear-gradient(125deg, var(--chapter-start), color-mix(in oklch, var(--background) 80%, var(--chapter-start)) 48%, var(--chapter-end));
-  background-attachment: fixed;
-}
-.chapter-opening { --chapter-start: var(--chapter-sky); --chapter-end: var(--chapter-rose); }
-#how-to-use { --chapter-start: var(--chapter-aqua); --chapter-end: var(--chapter-lemon); }
-#idea { --chapter-start: var(--chapter-lemon); --chapter-end: var(--chapter-mint); }
-#build { --chapter-start: var(--chapter-sky); --chapter-end: var(--chapter-aqua); }
-#brand { --chapter-start: var(--chapter-rose); --chapter-end: var(--chapter-peach); }
-#launch { --chapter-start: var(--chapter-peach); --chapter-end: var(--chapter-lemon); }
-#pr { --chapter-start: var(--chapter-lilac); --chapter-end: var(--chapter-rose); }
-#content { --chapter-start: var(--chapter-aqua); --chapter-end: var(--chapter-sky); }
-#analytics { --chapter-start: var(--chapter-mint); --chapter-end: var(--chapter-lilac); }
-#summary { --chapter-start: var(--chapter-lemon); --chapter-end: var(--chapter-rose); }
-#thirty-days { --chapter-start: var(--chapter-peach); --chapter-end: var(--chapter-aqua); }
-#glossary { --chapter-start: var(--chapter-sky); --chapter-end: var(--chapter-lemon); }
-#about { --chapter-start: var(--chapter-rose); --chapter-end: var(--chapter-mint); }
-@media (max-width: 1023px) {
-  .chapter-gradient { background-attachment: scroll; background-image: linear-gradient(110deg, var(--chapter-start), color-mix(in oklch, var(--background) 80%, var(--chapter-start)) 48%, var(--chapter-end)); }
+/* Gradients are reserved for small brand accents; sections stay white/off-white. */
+.gradient-accent {
+  background-image: linear-gradient(90deg, var(--chapter-sky), var(--chapter-mint), var(--chapter-rose));
 }

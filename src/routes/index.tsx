@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
@@ -220,32 +220,42 @@ function NewsletterForm() {
 
 function useActive() {
   const [active, setActive] = useState<string>("");
-  const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const barRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    let raf = 0;
     const onScroll = () => {
-      const h = document.documentElement;
-      setProgress(h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight));
-      setScrolled(h.scrollTop > 40);
-      let cur = "";
-      for (const [id] of CHAPTERS) {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
-      }
-      setActive(cur);
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const h = document.documentElement;
+        const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+        if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+        // Hysteresis: shrink only well past the top, restore near it, so the
+        // header never toggles back and forth mid-scroll (mobile flicker).
+        setScrolled((s) => (h.scrollTop > 80 ? true : h.scrollTop < 30 ? false : s));
+        let cur = "";
+        for (const [id] of CHAPTERS) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
+        }
+        setActive(cur);
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
-  return { active, progress, scrolled };
+  return { active, scrolled, barRef };
 }
 
 function Index() {
-  const { active, progress, scrolled } = useActive();
+  const { active, scrolled, barRef } = useActive();
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="gradient-accent fixed inset-x-0 top-0 z-50 h-[2px] origin-left" style={{ transform: `scaleX(${progress})` }} />
+      <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left" style={{ transform: "scaleX(0)" }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>

@@ -82,7 +82,8 @@
   --card-foreground: oklch(0.178 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.178 0 0);
-  --primary: oklch(0.178 0 0);
+  /* Primary button color requested by the user: #386bc5. */
+  --primary: oklch(0.529 0.137 262);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(1 0 0);
   --secondary-foreground: oklch(0.178 0 0);

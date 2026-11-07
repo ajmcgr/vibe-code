@@ -271,7 +271,9 @@ function useActive() {
       raf = requestAnimationFrame(() => {
         const h = document.documentElement;
         const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
-        if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+        // At the very top show the full color stripe; once scrolled it
+        // becomes the reading-progress bar.
+        if (barRef.current) barRef.current.style.transform = `scaleX(${h.scrollTop < 30 ? 1 : p})`;
         // Hysteresis: shrink only well past the top, restore near it, so the
         // header never toggles back and forth mid-scroll (mobile flicker).
         setScrolled((s) => (h.scrollTop > 80 ? true : h.scrollTop < 30 ? false : s));
@@ -297,7 +299,7 @@ function Index() {
   const { active, scrolled, barRef } = useActive();
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left" style={{ transform: "scaleX(0)" }} />
+      <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left transition-transform duration-150" style={{ transform: "scaleX(1)" }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>

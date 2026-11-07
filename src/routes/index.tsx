@@ -258,7 +258,7 @@ function Index() {
       <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left" style={{ transform: "scaleX(0)" }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
-          <a href="#top" className={`min-w-0 font-bold leading-none transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
+          <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
           <DownloadButton size={scrolled ? "xs" : "sm"} />
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">

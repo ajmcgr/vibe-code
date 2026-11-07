@@ -302,7 +302,12 @@ function Index() {
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
-          <DownloadButton size={scrolled ? "xs" : "sm"} />
+          <span className="flex shrink-0 items-center gap-1 sm:gap-2">
+            <span className="hidden sm:inline-flex">
+              <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
+            </span>
+            <DownloadButton size={scrolled ? "xs" : "sm"} />
+          </span>
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">
           <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 text-sm font-medium text-header-secondary">
@@ -345,9 +350,6 @@ function Index() {
               <a href="#how-to-use" className="inline-flex items-center rounded-button border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">
                 Start reading
               </a>
-            </div>
-            <div className="mt-10">
-              <ShareRow url={SITE} text={SHARE_TEXT} label="Share the book" size="md" />
             </div>
           </div>
         </section>

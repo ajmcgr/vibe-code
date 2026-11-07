@@ -90,6 +90,11 @@ gtag('js', new Date());`,
         async: true,
         src: "https://www.googletagmanager.com/gtm.js?id=GTM-WJW6MSH9",
       },
+      {
+        src: "https://analytics.ahrefs.com/analytics.js",
+        "data-key": "L4z3VZIf/TRLGOv0XX6r+w",
+        async: true,
+      },
     ],
     links: [
       {

@@ -142,7 +142,7 @@ function DownloadButton({ size = "md", free = true, tone = "primary" }: { size?:
     <span className="inline-flex shrink-0 items-center gap-2 sm:gap-3">
       <a
         href={PDF}
-        download
+        download="Vibe Coding Apps: From Idea to Launch and Beyond.pdf"
         className={`inline-flex items-center whitespace-nowrap rounded-button font-medium transition-all duration-300 hover:opacity-85 ${tone === "header" ? "bg-header-secondary text-primary-foreground" : "bg-primary text-primary-foreground"} ${size === "xs" ? "min-h-8 px-2.5 py-1 text-[11px] sm:min-h-9 sm:px-3 sm:text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
       >
         Download PDF
@@ -340,7 +340,7 @@ function Index() {
         <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <span>© Alex MacGregor</span>
           <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
-            <a href={PDF} download className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
+            <a href={PDF} download="Vibe Coding Apps: From Idea to Launch and Beyond.pdf" className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
             <span className="text-xs">(free)</span>
           </span>
         </div>

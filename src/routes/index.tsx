@@ -303,10 +303,10 @@ function Index() {
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
           <span className="flex shrink-0 items-center gap-1 sm:gap-2">
+            <DownloadButton size={scrolled ? "xs" : "sm"} />
             <span className="hidden sm:inline-flex">
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
             </span>
-            <DownloadButton size={scrolled ? "xs" : "sm"} />
           </span>
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">

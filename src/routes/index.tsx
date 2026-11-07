@@ -220,13 +220,19 @@ function NewsletterForm() {
 
 function useActive() {
   const [active, setActive] = useState<string>("");
-  const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const barRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    let raf = 0;
     const onScroll = () => {
-      const h = document.documentElement;
-      setProgress(h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight));
-      setScrolled(h.scrollTop > 40);
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const h = document.documentElement;
+        const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+        if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+        // Hysteresis: shrink only well past the top, restore near it, so the
+        // header never toggles back and forth mid-scroll (mobile flicker).
+        setScrolled((s) => (h.scrollTop > 80 ? true : h.scrollTop < 30 ? false : s));
       let cur = "";
       for (const [id] of CHAPTERS) {
         const el = document.getElementById(id);

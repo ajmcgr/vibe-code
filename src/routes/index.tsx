@@ -58,6 +58,49 @@ const CHAPTERS = [
 const SHARE_TEXT =
   "Vibe Coding Apps: From Idea to Launch and Beyond — a free 7-phase playbook for founders by Alex MacGregor";
 
+const PHASES = [
+  ["idea", "Idea", "top"],
+  ["build", "Build", "bottom"],
+  ["brand", "Brand", "top"],
+  ["launch", "Launch", "bottom"],
+  ["pr", "PR", "top"],
+  ["content", "Content", "bottom"],
+  ["analytics", "Analytics", "top"],
+] as const;
+
+function PhaseTimeline() {
+  return (
+    <nav aria-label="The 7 phases" className="mt-14">
+      <ol className="relative flex">
+        <div className="absolute inset-x-0 top-12 h-px -translate-y-1/2 bg-border" aria-hidden="true" />
+        {PHASES.map(([id, label, pos]) => (
+          <li key={id} className="relative flex-1">
+            <a href={`#${id}`} className="group flex flex-col items-center">
+              {pos === "top" ? (
+                <>
+                  <span className="flex h-6 items-center text-[11px] font-semibold tracking-tight transition-colors group-hover:text-primary sm:text-sm md:text-base">{label}</span>
+                  <span className="h-4 w-px bg-foreground/40" aria-hidden="true" />
+                  <span className="relative my-1.5 h-2.5 w-2.5 rounded-full bg-foreground" aria-hidden="true" />
+                  <span className="h-4 w-px" aria-hidden="true" />
+                  <span className="h-6" aria-hidden="true" />
+                </>
+              ) : (
+                <>
+                  <span className="h-6" aria-hidden="true" />
+                  <span className="h-4 w-px" aria-hidden="true" />
+                  <span className="relative my-1.5 h-2.5 w-2.5 rounded-full bg-foreground" aria-hidden="true" />
+                  <span className="h-4 w-px bg-foreground/40" aria-hidden="true" />
+                  <span className="flex h-6 items-center text-[11px] font-semibold tracking-tight transition-colors group-hover:text-primary sm:text-sm md:text-base">{label}</span>
+                </>
+              )}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
 function XIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
@@ -296,6 +339,7 @@ function Index() {
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">FOUNDER PLAYBOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
+            <PhaseTimeline />
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <DownloadButton free={false} />
               <a href="#how-to-use" className="inline-flex items-center rounded-button border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">

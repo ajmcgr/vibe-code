@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";

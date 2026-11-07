@@ -303,7 +303,7 @@ function Index() {
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
-          <span className="flex shrink-0 items-center gap-1 sm:gap-2">
+          <span className="flex shrink-0 items-center gap-4 sm:gap-6">
             <span className="hidden items-center gap-1.5 sm:inline-flex">
               <span className="text-xs text-muted-foreground">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
@@ -387,7 +387,7 @@ function Index() {
       <footer className="border-t border-border px-5 py-10">
         <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <span>© Alex MacGregor</span>
-          <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
+          <span className="inline-flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="inline-flex items-center gap-1.5">
               <span className="text-xs">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />

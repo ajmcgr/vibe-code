@@ -180,7 +180,7 @@ function ShareIcons({ url, text, label = "Share this phase" }: { url: string; te
   );
 }
 
-function DownloadButton({ size = "md", free = true, tone = "primary" }: { size?: "xs" | "sm" | "md"; free?: boolean; tone?: "primary" | "header" }) {
+function DownloadButton({ size = "md", tone = "primary" }: { size?: "xs" | "sm" | "md"; tone?: "primary" | "header" }) {
   return (
     <span className="inline-flex shrink-0 items-center gap-2 sm:gap-3">
       <a
@@ -188,9 +188,8 @@ function DownloadButton({ size = "md", free = true, tone = "primary" }: { size?:
         download="Vibe Coding Apps: From Idea to Launch and Beyond.pdf"
         className={`inline-flex items-center whitespace-nowrap rounded-button font-medium transition-all duration-300 hover:opacity-85 ${tone === "header" ? "bg-header-secondary text-primary-foreground" : "bg-primary text-primary-foreground"} ${size === "xs" ? "min-h-8 px-2.5 py-1 text-[11px] sm:min-h-9 sm:px-3 sm:text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
       >
-        Download PDF
+        Download PDF free
       </a>
-      {free && <span className="text-xs text-muted-foreground">(free)</span>}
     </span>
   );
 }
@@ -304,7 +303,8 @@ function Index() {
           <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
           <span className="flex shrink-0 items-center gap-1 sm:gap-2">
             <DownloadButton size={scrolled ? "xs" : "sm"} />
-            <span className="hidden sm:inline-flex">
+            <span className="hidden items-center gap-1.5 sm:inline-flex">
+              <span className="text-xs text-muted-foreground">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
             </span>
           </span>
@@ -346,7 +346,7 @@ function Index() {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <PhaseTimeline />
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <DownloadButton free={false} />
+              <DownloadButton />
               <a href="#how-to-use" className="inline-flex items-center rounded-button border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">
                 Start reading
               </a>
@@ -386,8 +386,11 @@ function Index() {
         <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <span>© Alex MacGregor</span>
           <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
-            <a href={PDF} download="Vibe Coding Apps: From Idea to Launch and Beyond.pdf" className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
-            <span className="text-xs">(free)</span>
+            <a href={PDF} download="Vibe Coding Apps: From Idea to Launch and Beyond.pdf" className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF free</a>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="text-xs">Share:</span>
+              <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
+            </span>
           </span>
         </div>
       </footer>

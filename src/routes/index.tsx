@@ -137,13 +137,13 @@ function ShareIcons({ url, text, label = "Share this phase" }: { url: string; te
   );
 }
 
-function DownloadButton({ size = "md", free = true }: { size?: "xs" | "sm" | "md"; free?: boolean }) {
+function DownloadButton({ size = "md", free = true, tone = "primary" }: { size?: "xs" | "sm" | "md"; free?: boolean; tone?: "primary" | "header" }) {
   return (
     <span className="inline-flex shrink-0 items-center gap-2 sm:gap-3">
       <a
         href={PDF}
         download
-        className={`inline-flex items-center whitespace-nowrap rounded-button bg-primary font-medium text-primary-foreground transition-all duration-300 hover:opacity-85 ${size === "xs" ? "min-h-8 px-2.5 py-1 text-[11px] sm:min-h-9 sm:px-3 sm:text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
+        className={`inline-flex items-center whitespace-nowrap rounded-button font-medium transition-all duration-300 hover:opacity-85 ${tone === "header" ? "bg-header-secondary text-primary-foreground" : "bg-primary text-primary-foreground"} ${size === "xs" ? "min-h-8 px-2.5 py-1 text-[11px] sm:min-h-9 sm:px-3 sm:text-xs" : size === "sm" ? "min-h-11 px-3 py-2 text-xs sm:px-4 sm:py-1.5 sm:text-sm" : "min-h-11 px-6 py-3 text-base"}`}
       >
         Download PDF
       </a>
@@ -259,10 +259,10 @@ function Index() {
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <a href="#top" className={`min-w-0 font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
-          <DownloadButton size={scrolled ? "xs" : "sm"} />
+          <DownloadButton size={scrolled ? "xs" : "sm"} tone="header" />
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 text-sm font-medium">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 text-sm font-medium text-header-secondary">
             <List className="h-4 w-4 shrink-0" aria-hidden="true" />
             <span className="min-w-0 flex-1">{CHAPTERS.find(([id]) => id === active)?.[1] ?? "Contents"}</span>
             <ChevronDown className="h-4 w-4 shrink-0" aria-hidden="true" />

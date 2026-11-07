@@ -273,7 +273,7 @@ function useActive() {
         const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
         // At the very top show the full color stripe; once scrolled it
         // becomes the reading-progress bar.
-        if (barRef.current) barRef.current.style.transform = `scaleX(${h.scrollTop < 30 ? 1 : p})`;
+        if (barRef.current) barRef.current.style.transform = `scaleX(${h.scrollTop < 80 ? 1 : p})`;
         // Hysteresis: shrink only well past the top, restore near it, so the
         // header never toggles back and forth mid-scroll (mobile flicker).
         setScrolled((s) => (h.scrollTop > 80 ? true : h.scrollTop < 30 ? false : s));

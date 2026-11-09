@@ -8,7 +8,17 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const timer = window.setTimeout(() => setOpen(true), 8000);
-    return () => window.clearTimeout(timer);
+    const onScroll = () => {
+      const firstChapter = document.getElementById("how-to-use");
+      if (firstChapter && firstChapter.getBoundingClientRect().bottom < 0) {
+        setOpen(true);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

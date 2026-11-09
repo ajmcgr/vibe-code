@@ -10,7 +10,12 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (window.localStorage.getItem(SEEN_KEY)) return;
+    let shown = false;
     const show = () => {
+      if (shown) return;
+      shown = true;
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
       window.localStorage.setItem(SEEN_KEY, "1");
       setOpen(true);
     };
@@ -18,7 +23,6 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
     const onScroll = () => {
       const firstChapter = document.getElementById("how-to-use");
       if (firstChapter && firstChapter.getBoundingClientRect().bottom < 0) {
-        window.clearTimeout(timer);
         show();
       }
     };

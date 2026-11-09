@@ -331,7 +331,7 @@ A brand has four parts that work together:
 
 ## Your tool stack
 
-### Rocket
+### Brand kit
 
 **What it is for:** brand strategy, positioning, and launch assets, so a new product shows up like a company instead of a side project.
 

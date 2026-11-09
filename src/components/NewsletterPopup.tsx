@@ -34,7 +34,7 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={(next) => { if (!next) window.localStorage.setItem(SEEN_KEY, "1"); setOpen(next); }}>
       <DialogContent className="newsletter-popup max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-md gap-0 overflow-y-auto rounded-button p-0 motion-reduce:animate-none" onOpenAutoFocus={(event) => event.preventDefault()}>
         <div className="gradient-accent h-1 w-full" aria-hidden="true" />
         <div className="px-6 pb-5 pt-8 sm:px-8">

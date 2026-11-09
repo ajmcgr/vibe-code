@@ -18,7 +18,7 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
         <div className="px-6 pb-5 pt-8 sm:px-8">
           <img src={alex.url} alt="Alex MacGregor" className="mb-5 h-20 w-20 border border-border object-cover" />
           <p className="mb-3 text-xs font-medium text-muted-foreground">ALEX MACGREGOR</p>
-          <DialogTitle className="text-3xl font-bold leading-tight tracking-normal">Build your next move.</DialogTitle>
+          <DialogTitle className="text-3xl font-bold leading-tight tracking-normal">More from the author.</DialogTitle>
           <DialogDescription className="mt-4 text-base leading-relaxed">
             Get my take on startups, vibe coding, AI tools and distribution—straight to your inbox.
           </DialogDescription>

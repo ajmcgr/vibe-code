@@ -10,7 +10,12 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (window.localStorage.getItem(SEEN_KEY)) return;
+    let shown = false;
     const show = () => {
+      if (shown) return;
+      shown = true;
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
       window.localStorage.setItem(SEEN_KEY, "1");
       setOpen(true);
     };
@@ -18,7 +23,6 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
     const onScroll = () => {
       const firstChapter = document.getElementById("how-to-use");
       if (firstChapter && firstChapter.getBoundingClientRect().bottom < 0) {
-        window.clearTimeout(timer);
         show();
       }
     };
@@ -30,7 +34,7 @@ export function NewsletterPopup({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={(next) => { if (!next) window.localStorage.setItem(SEEN_KEY, "1"); setOpen(next); }}>
       <DialogContent className="newsletter-popup max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-md gap-0 overflow-y-auto rounded-button p-0 motion-reduce:animate-none" onOpenAutoFocus={(event) => event.preventDefault()}>
         <div className="gradient-accent h-1 w-full" aria-hidden="true" />
         <div className="px-6 pb-5 pt-8 sm:px-8">

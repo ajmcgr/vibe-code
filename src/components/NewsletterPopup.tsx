@@ -3,15 +3,23 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } fr
 import { Button } from "@/components/ui/button";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
 
+const SEEN_KEY = "newsletter-popup-seen";
+
 export function NewsletterPopup({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setOpen(true), 8000);
+    if (window.localStorage.getItem(SEEN_KEY)) return;
+    const show = () => {
+      window.localStorage.setItem(SEEN_KEY, "1");
+      setOpen(true);
+    };
+    const timer = window.setTimeout(show, 8000);
     const onScroll = () => {
       const firstChapter = document.getElementById("how-to-use");
       if (firstChapter && firstChapter.getBoundingClientRect().bottom < 0) {
-        setOpen(true);
+        window.clearTimeout(timer);
+        show();
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });

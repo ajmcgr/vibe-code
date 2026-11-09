@@ -299,7 +299,7 @@ PHASE LABEL: PHASE 3
 
 # Brand: Turn MVP into a Trusted Product {#brand}
 
-LEAD: Great products fail without a great story. Rocket gives founders the brand strategy, positioning, and launch assets to show up like a company, not a side project.
+LEAD: Great products fail without a great story. A simple brand kit gives founders the strategy, positioning, and launch assets to show up like a company, not a side project.
 
 ## Why this phase matters
 

@@ -72,7 +72,7 @@ const PHASES = [
 
 function PhaseTimeline() {
   return (
-    <nav aria-label="The 7 phases" className="mt-14">
+    <nav aria-label="The 7 phases" className="mt-7">
       <ol className="relative flex">
         <div className="absolute inset-x-0 top-12 h-px -translate-y-1/2 bg-border" aria-hidden="true" />
         {PHASES.map(([id, label, pos]) => (

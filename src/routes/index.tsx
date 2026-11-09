@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { ExpandedPlaybook } from "@/components/ExpandedPlaybook";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
+import { Button } from "@/components/ui/button";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 import alex from "@/assets/alex-macgregor-portrait.jpg.asset.json";
 import bookPdf from "@/assets/vibe-coding-apps.pdf.asset.json";
@@ -194,7 +196,8 @@ function DownloadButton({ size = "md", tone = "primary" }: { size?: "xs" | "sm" 
   );
 }
 
-function NewsletterForm() {
+function NewsletterForm({ popup = false }: { popup?: boolean }) {
+  const emailId = useId();
   const subscribe = useServerFn(subscribeToNewsletter);
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
@@ -232,9 +235,9 @@ function NewsletterForm() {
       ) : (
         <>
           <form onSubmit={onSubmit} className="mt-3 flex max-w-md flex-wrap items-center gap-3">
-            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+            <label htmlFor={emailId} className="sr-only">Email address</label>
             <input
-              id="newsletter-email"
+              id={emailId}
               name="email"
               type="email"
               required
@@ -244,13 +247,13 @@ function NewsletterForm() {
               onChange={(event) => setEmail(event.target.value)}
               className="min-h-11 w-full min-w-0 flex-1 rounded-button border border-border bg-background px-4 text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             />
-            <button
+            <Button
               type="submit"
               disabled={sending}
-              className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-button bg-primary px-6 text-base font-medium text-primary-foreground transition-all duration-300 hover:opacity-85 disabled:opacity-60"
+              className={`min-h-11 shrink-0 rounded-button px-6 text-base font-medium ${popup ? "w-full" : ""}`}
             >
-              {sending ? "Signing up…" : "Subscribe"}
-            </button>
+              {sending ? "Signing up…" : popup ? "Get Alex’s newsletter" : "Subscribe"}
+            </Button>
           </form>
           <p aria-live="polite" className="mt-2 min-h-4 text-xs text-destructive">{error}</p>
           <p className="text-xs text-muted-foreground">Unsubscribe anytime.</p>
@@ -299,6 +302,7 @@ function Index() {
   const { active, scrolled, barRef } = useActive();
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <NewsletterPopup><NewsletterForm popup /></NewsletterPopup>
       <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left transition-transform duration-150" style={{ transform: "scaleX(1)" }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>

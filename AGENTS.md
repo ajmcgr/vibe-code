@@ -32,3 +32,4 @@ use the editor.
 - Load site-wide analytics scripts through the root route head so they initialize once across pages.
 - Keep expanded book copy in Markdown and render its editorial markers through the dedicated book component, preserving all supplied sections and mapping image paths to asset pointers.
 - Use a collapsible contents menu below the desktop-navigation breakpoint so mobile chapter links remain available without covering the reading column.
+- Reuse the existing newsletter form in the avatar-led popup and author section; popup visibility is in-memory only so it needs no visitor storage.

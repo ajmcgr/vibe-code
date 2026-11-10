@@ -4,7 +4,7 @@ PHASE LABEL: START HERE
 
 # How to Use This Playbook {#how-to-use}
 
-LEAD: Vibe coding has made building software faster than ever. It has not made building a business any easier. This playbook gives you the full path: seven phases that take you from a rough idea to a launched product with a steady stream of users, and then back around again with better information.
+LEAD: Vibe coding — the term coined by Andrej Karpathy — has made building software faster than ever. It has not made building a business any easier. This playbook gives you the full path: seven phases that take you from a rough idea to a launched product with a steady stream of users, and then back around again with better information.
 
 ## Who this is for
 

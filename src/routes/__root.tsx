@@ -95,6 +95,11 @@ gtag('js', new Date());`,
         "data-key": "L4z3VZIf/TRLGOv0XX6r+w",
         async: true,
       },
+      {
+        src: "https://cloud.umami.is/script.js",
+        "data-website-id": "67785669-e733-4142-b588-bee31bbe0731",
+        defer: true,
+      },
     ],
     links: [
       {

@@ -11,7 +11,7 @@ import { List, ChevronDown } from "lucide-react";
 
 const TITLE = "Vibe Coding Apps: From Idea to Launch and Beyond";
 const SUB =
-  "Vibe coding — the term coined by Andrej Karpathy — has changed how software gets built. This is a structured 7-phase path for early-stage founders to go from idea to market, build momentum, and keep growing.";
+  "A structured 7-phase path for early-stage founders to go from idea to market, build momentum, and keep growing.";
 const PDF = bookPdf.url;
 const SITE = "https://vibecodebook.org";
 const OG_IMAGE = `${SITE}/og-cover.png`;

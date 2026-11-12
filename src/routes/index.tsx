@@ -357,7 +357,7 @@ function Index() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                 </span>
-                <span><strong className="font-semibold text-foreground">900+ founders</strong> have downloaded it</span>
+                <span><strong className="font-semibold text-foreground">900+ founders</strong> downloaded</span>
               </p>
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>

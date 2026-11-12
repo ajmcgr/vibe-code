@@ -305,19 +305,19 @@ function Index() {
       <NewsletterPopup><NewsletterForm popup /></NewsletterPopup>
       <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left transition-transform duration-150" style={{ transform: "scaleX(1)" }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className={`flex w-full items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
+        <div className={`flex w-full flex-wrap items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
           <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
             <a href="#top" className={`min-w-0 whitespace-nowrap font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
             <span className="whitespace-nowrap text-xs text-muted-foreground sm:text-sm">by Alex MacGregor</span>
           </div>
-          <span className="flex shrink-0 items-center gap-4 sm:gap-6">
+          <span className="ml-auto flex shrink-0 items-center gap-4 sm:gap-6">
             <span className="hidden items-center gap-1.5 sm:inline-flex">
               <span className="text-xs text-muted-foreground">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
             </span>
-            <span className="flex max-w-32 flex-col items-center gap-3 sm:max-w-none">
+            <span className="flex items-center gap-3">
+              <span className="max-w-24 text-right text-[10px] leading-snug text-muted-foreground sm:max-w-none sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
               <DownloadButton size={scrolled ? "xs" : "sm"} />
-              <span className="text-center text-[10px] leading-snug text-muted-foreground sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
             </span>
           </span>
         </div>

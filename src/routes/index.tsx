@@ -305,7 +305,7 @@ function Index() {
       <NewsletterPopup><NewsletterForm popup /></NewsletterPopup>
       <div ref={barRef} className="gradient-accent fixed inset-x-0 top-0 z-50 h-1 origin-left transition-transform duration-150" style={{ transform: "scaleX(1)" }} />
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className={`flex w-full flex-wrap items-center justify-between gap-2 px-4 transition-all duration-300 sm:gap-4 sm:px-5 ${scrolled ? "py-1.5" : "py-3"}`}>
+        <div className={`flex w-full flex-wrap items-center justify-between gap-3 px-4 transition-all duration-300 sm:gap-6 sm:px-6 ${scrolled ? "py-3" : "py-6"}`}>
           <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
             <a href="#top" className={`min-w-0 whitespace-nowrap font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
             <span className="whitespace-nowrap text-xs text-muted-foreground sm:text-sm">by Alex MacGregor</span>

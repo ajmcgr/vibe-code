@@ -351,8 +351,7 @@ function Index() {
         <section className="flex min-h-[calc(100svh-7rem)] items-center bg-background px-5 py-16 sm:min-h-[calc(100svh-8rem)] sm:py-24">
           <div className="mx-auto my-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">FOUNDER PLAYBOOK</div>
-            <p className="mt-5 text-sm font-medium text-primary">Over 900 downloads</p>
-            <h1 className="mt-3 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <PhaseTimeline />
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -361,6 +360,13 @@ function Index() {
                 Start reading
               </a>
             </div>
+            <p className="mt-5 inline-flex items-center gap-2.5 rounded-button border border-border bg-accent/60 px-3.5 py-2 text-sm text-muted-foreground">
+              <span className="relative flex h-2 w-2" aria-hidden="true">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              <span><strong className="font-semibold text-foreground">900+ founders</strong> have downloaded the playbook</span>
+            </p>
           </div>
         </section>
 

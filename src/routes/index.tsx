@@ -311,10 +311,6 @@ function Index() {
             <span className="whitespace-nowrap text-xs text-muted-foreground sm:text-sm">by Alex MacGregor</span>
           </div>
           <span className="ml-auto flex shrink-0 items-center gap-4 sm:gap-6">
-            <span className="hidden items-center gap-1.5 sm:inline-flex">
-              <span className="text-xs text-muted-foreground">Share:</span>
-              <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
-            </span>
             <span className="flex items-center gap-3">
               <span className="max-w-24 text-right text-[10px] leading-snug text-muted-foreground sm:max-w-none sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
               <DownloadButton size={scrolled ? "xs" : "sm"} />

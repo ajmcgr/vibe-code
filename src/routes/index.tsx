@@ -310,11 +310,9 @@ function Index() {
             <a href="#top" className={`min-w-0 whitespace-nowrap font-bold leading-none text-header transition-all duration-300 ${scrolled ? "text-lg sm:text-3xl" : "text-4xl sm:text-5xl md:text-8xl"}`}>Vibe Code</a>
             <span className="whitespace-nowrap text-xs text-muted-foreground sm:text-sm">by Alex MacGregor</span>
           </div>
-          <span className="ml-auto flex shrink-0 items-center gap-4 sm:gap-6">
-            <span className="flex items-center gap-3">
-              <span className="max-w-24 text-right text-[10px] leading-snug text-muted-foreground sm:max-w-none sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
-              <DownloadButton size={scrolled ? "xs" : "sm"} />
-            </span>
+          <span className="flex w-full shrink-0 items-center justify-between gap-3 sm:ml-auto sm:w-auto sm:justify-start sm:gap-6">
+            <span className="min-w-0 text-left text-[10px] leading-snug text-muted-foreground sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
+            <DownloadButton size={scrolled ? "xs" : "sm"} />
           </span>
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">

@@ -352,11 +352,13 @@ function Index() {
           <div className="mx-auto my-auto max-w-[720px]">
             <div className="text-xs font-medium tracking-[0.18em] text-muted-foreground">FOUNDER PLAYBOOK</div>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{TITLE}</h1>
-            <p className="mt-4 text-sm text-muted-foreground">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></p>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <PhaseTimeline />
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <DownloadButton />
+            <div className="mt-10 flex flex-wrap items-start gap-4">
+              <div className="flex flex-col items-center gap-3">
+                <DownloadButton />
+                <p className="text-xs text-muted-foreground">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></p>
+              </div>
               <a href="#how-to-use" className="inline-flex items-center rounded-button border border-border px-6 py-3 font-medium transition-colors hover:bg-accent">
                 Start reading
               </a>

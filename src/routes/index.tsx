@@ -315,7 +315,10 @@ function Index() {
               <span className="text-xs text-muted-foreground">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
             </span>
-            <DownloadButton size={scrolled ? "xs" : "sm"} />
+            <span className="flex max-w-32 flex-col items-center gap-1.5 sm:max-w-none">
+              <DownloadButton size={scrolled ? "xs" : "sm"} />
+              <span className="text-center text-[10px] leading-snug text-muted-foreground sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
+            </span>
           </span>
         </div>
         <details className="mobile-chapters relative border-t border-border lg:hidden">

@@ -315,7 +315,7 @@ function Index() {
               <span className="text-xs text-muted-foreground">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
             </span>
-            <span className="flex max-w-32 flex-col items-center gap-1.5 sm:max-w-none">
+            <span className="flex max-w-32 flex-col items-center gap-3 sm:max-w-none">
               <DownloadButton size={scrolled ? "xs" : "sm"} />
               <span className="text-center text-[10px] leading-snug text-muted-foreground sm:text-xs">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></span>
             </span>
@@ -358,7 +358,7 @@ function Index() {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">{SUB}</p>
             <PhaseTimeline />
             <div className="mt-10 flex flex-wrap items-start gap-4">
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex flex-col items-center gap-5">
                 <DownloadButton />
                 <p className="text-xs text-muted-foreground">Downloaded by <strong className="font-semibold text-foreground">900+ founders</strong></p>
               </div>

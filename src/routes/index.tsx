@@ -401,7 +401,6 @@ function Index() {
               <span className="text-xs">Share:</span>
               <ShareIcons url={SITE} text={SHARE_TEXT} label="Share the book" />
             </span>
-            <a href={PDF} download="Vibe Coding Apps: From Idea to Launch and Beyond.pdf" className="inline-flex min-h-11 items-center font-medium text-foreground underline underline-offset-4">Download PDF</a>
           </span>
         </div>
       </footer>
